@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #1b2531; }
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+  color: #fff;
+  padding: 50px; }
+
+#drum-pads {
+  display: flex;
+  justify-content: center; }
+  #drum-pads .drum {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    #drum-pads .drum .box {
+      color: #fff;
+      border: #2bafd4 5px solid;
+      padding: 50px;
+      margin: 15px; }
+    #drum-pads .drum p {
+      color: #fff;
+      font-size: 1.5rem; }
