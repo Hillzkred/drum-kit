@@ -13,20 +13,18 @@ h1 {
   padding: 50px;
   margin-top: 150px; }
 
-#drum-pads {
-  display: flex;
-  justify-content: center; }
-  #drum-pads .drum {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-    #drum-pads .drum .pad {
-      background-color: #181e29;
-      border: #305863 5px solid;
-      margin: 35px; }
-      #drum-pads .drum .pad img {
-        width: 200px; }
-    #drum-pads .drum p {
-      color: #305863;
-      font-size: 2rem;
-      font-weight: bold; }
+#layout-grid #drum-pads {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 1rem; }
+  #layout-grid #drum-pads .pad {
+    background-color: #181e29;
+    border: #305863 5px solid;
+    width: 200px;
+    margin: auto; }
+  #layout-grid #drum-pads p {
+    color: #305863;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 auto; }
