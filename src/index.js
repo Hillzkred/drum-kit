@@ -1,8 +1,13 @@
-document.querySelector('.drum')[i].addEventListener('click', playSound);
+const drumLength = document.querySelectorAll('.drum').length;
+const drumArray = document.querySelectorAll('.pad');
 
-function playSound() {
-  for (i = 0; i < getElementsByClassName('.drum').length; i++) {
-    let audio = new Audio('mp3/snare.pm3');
-    audio.play();
+drumArray.forEach(function (drum) {
+  drum.addEventListener('click', changeColor);
+
+  function changeColor() {
+    drum.style.borderColor = 'white';
   }
-}
+});
+
+// let audio = new Audio('/sounds/snare.mp3');
+// audio.play();
