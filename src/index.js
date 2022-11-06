@@ -1,68 +1,66 @@
 const drumArray = document.querySelectorAll('.pad');
 
-// function KeyInput(keyChar){
-//     this.matchKey = function(keyChar){
-//         keyChar
-//     }
-// }
-
-// const newKey = new KeyInput(pressKey);
-// newKey.matchKey();
-
-// const foo = detectKey(event);
-
 drumArray.forEach(function (drum) {
-  drum.addEventListener('click', playDrum);
-  document.addEventListener('keydown', playDrum);
+  drum.addEventListener('click', click);
 
-  function DrumKit(snare, kick, hiHat, hiTom, floorTom, crash) {
-    this.snare = snare;
-    this.kick = kick;
-    this.hiHat = hiHat;
-    this.hiTom = hiTom;
-    this.floorTom = floorTom;
-    this.crash = crash;
+  function click() {
+    const getClass = this.firstElementChild.className;
+    makeSound(getClass);
   }
 
-  const drumPart = new DrumKit('s', 'b', 'h', 't', 'f', 'c');
+  document.addEventListener('keydown', (event) => {
+    makeSound(event.key);
+  });
 
-  function playDrum(event) {
-    const getKey = event.key;
-    const getClass = this.firstElementChild.className;
+  document.addEventListener('keyup', (event) => {
+    document.querySelector('.snare').style.borderColor = '#305863';
+    document.querySelector('.kick').style.borderColor = '#305863';
+    document.querySelector('.hi-hat').style.borderColor = '#305863';
+    document.querySelector('.hi-tom').style.borderColor = '#305863';
+    document.querySelector('.floor-tom').style.borderColor = '#305863';
+    document.querySelector('.crash').style.borderColor = '#305863';
+  });
 
-    switch (getClass) {
+  function makeSound(key) {
+    switch (key) {
       case 's':
         let playSnare = new Audio('/sounds/snare.mp3');
         playSnare.play();
+        document.querySelector('.snare').style.borderColor = '#ffffff';
         break;
 
       case 'b':
         let playKick = new Audio('/sounds/kick.mp3');
         playKick.play();
+        document.querySelector('.kick').style.borderColor = '#ffffff';
         break;
 
       case 'h':
         let playHiHat = new Audio('/sounds/hi-hat.mp3');
         playHiHat.play();
+        document.querySelector('.hi-hat').style.borderColor = '#ffffff';
         break;
 
       case 't':
         let playHiTom = new Audio('/sounds/hi-tom.mp3');
         playHiTom.play();
+        document.querySelector('.hi-tom').style.borderColor = '#ffffff';
         break;
 
       case 'f':
         let playFloorTom = new Audio('/sounds/floor-tom.mp3');
         playFloorTom.play();
+        document.querySelector('.floor-tom').style.borderColor = '#ffffff';
         break;
 
       case 'c':
         let playCrash = new Audio('/sounds/crash.mp3');
         playCrash.play();
+        document.querySelector('.crash').style.borderColor = '#ffffff';
         break;
 
       default:
-        console.log(getClass);
+        console.log(key);
     }
   }
 });
