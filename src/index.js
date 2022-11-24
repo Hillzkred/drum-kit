@@ -1,4 +1,5 @@
 const drumArray = document.querySelectorAll('.pad-img');
+//Drum kit!
 
 drumArray.forEach(function (drum) {
   drum.addEventListener('click', click);
